@@ -1,0 +1,73 @@
+{% extends "pray/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm pray-form-container">
+            <div class="imagecontainer">
+                <img class="img-cryingjesus img-responsive" src="{% static 'pray/CryingJesus.png' %}">
+            </div>
+            <div class="row">
+                <div class="col-sm text-center" style="margin-top:50px">
+                        <h1>Prayer List</h1>
+                        <p>
+                            <h4>Want to know what others hope for? Click on the names to see details.</h4>
+                        </p>
+                </div>
+            </div>
+            <div class="accordion-wrapper mt-3">
+                <div class="accordion" id="prayerList">
+                    {% for prayer in prayers %}
+                        <div class="card">
+                            <div class="card-header" id="heading{{ prayer.pk }}">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#prayer{{ prayer.pk }}" aria-expanded="true" aria-controls="prayer{{ prayer.pk }}">
+                                        <div class="row">
+                                            <div class="col-8 text-left" style="color:black">
+                                                {{ prayer.name }}'s wish
+                                            </div>
+                                            <small class="col-4 text-right text-muted">
+                                                {{ prayer.date|date:"F d, Y" }}
+                                            </small>
+                                        </div>
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="prayer{{ prayer.pk }}" class="collapse" aria-labelledby="heading{{ prayer.pk }}" data-parent="#prayerList">
+                                <div class="card-body" style="background-color: #333333; color:white;">
+                                    {{ prayer.content }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    {% if is_paginated %}
+                        {% if page_obj.has_previous %}
+                            <a class="btn btn-outline-info mb-4 paginate"  href="?page=1">First</a>
+                            <a class="btn btn-outline-info mb-4 paginate" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                        {% endif %}
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if page_obj.number == num %}
+                                <a class="btn btn-info mb-4 paginate" href="?page={{ num }}">{{ num }}</a>
+                            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3'%}
+                                <a class="btn btn-outline-info mb-4 paginate" href="?page={{ num }}">{{ num }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <a class="btn btn-outline-info mb-4 paginate" href="?page={{ page_obj.next_page_number }}">Next</a>
+                            <a class="btn btn-outline-info mb-4 paginate" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="col-4 text-right" style="color:lightgray">
+                     {{ prayerCount }} people dropped by.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

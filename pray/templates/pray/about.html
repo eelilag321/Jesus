@@ -1,0 +1,27 @@
+{% extends "pray/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm pray-form-container">
+            <div class="imagecontainer">
+                <img class="img-cryingjesus img-responsive" src="{% static 'pray/JesusCreist_Logo_white_backup.png' %}">
+            </div>
+            <div class="row">
+                <div class="col-sm text-center" style="margin-top:50px">
+                        <h1>About Jesus Criest</h1>
+                        <p>
+                            <small style="color:#ad9393">Copyrightⓒ2020 by Eelilag. (eelilag321@gmail.com)</small>
+                        </p>
+                        <p>
+                            <h4>It stores people's wishes, and that's all. Do I believe in God? Yes, but my holy jesus is myself, who never cries.</h4>
+                        </p>
+                        <div class="mt-5">
+                            <a class="btn btn-outline-info" href="{% url 'pray' %}">For who cries often</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,45 @@
+.container { position: relative; top: 600px; z-index: 5; }
+
+.link { color: white; }
+
+body { animation: blue-me 5ms infinite; }
+
+body:after { box-shadow: inset 0 0 10em rgba(0, 0, 0, 0.75); position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; content: ""; }
+
+.screen-bottom { position: fixed; bottom: 0; width: 100%; }
+
+@keyframes blue-me { 28% { background: #171DA8; }
+  30% { background: rgba(23, 29, 168, 0.95); }
+  33% { background: #171DA8; }
+  34% { background: rgba(23, 29, 168, 0.9); }
+  35% { background: #171DA8; } }
+
+.line { width: 100%; height: 3px; position: relative; animation: appear 1s infinite, flick 1s infinite, big-jump 5ms infinite; }
+
+.line .white { background: white; position: relative; top: 0; left: 0; height: 4px; }
+
+.line .red { background: red; position: relative; top: 0; left: 0; height: 1px; }
+
+.line .green { background: green; position: relative; top: 0; left: 0; height: 1px; }
+
+@keyframes appear { 0% { filter: blur(5px);
+    opacity: 0.85; }
+  50% { filter: blur(3px);
+    opacity: 0.85; }
+  100% { filter: blur(4px);
+    opacity: 0.85; } }
+
+@keyframes big-jump { 0% { top: 0; }
+  10% { top: -100px; }
+  12% { top: 0; }
+  54% { top: 0; }
+  55% { top: -300px; }
+  56% { top: 0; }
+  86% { top: 0; }
+  87% { top: -600px; }
+  88% { top: 0; } }
+
+@keyframes flick { 50% { left: 2px; }
+  51% { left: 0; } }
+
+/*# sourceMappingURL=noise.css.map */

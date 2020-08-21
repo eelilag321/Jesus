@@ -1,0 +1,70 @@
+header {
+  margin-bottom: 100px;
+}
+
+body {
+  background-color: #1f1f1f;
+  font-family: 이순신 돋움체 L, serif;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1 {
+  color: #e4e4e4;
+}
+
+h2, h3, h4, h5, h6 {
+  color: #585858;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: black;
+}
+
+.content-section {
+  background: #000000;
+  padding: 10px 20px;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.logolink {
+  margin:0 auto;
+}
+
+.logotext {
+  width: 150px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.pray-form-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: black;
+  border-radius: 5px;
+
+}
+
+.imagecontainer {
+  text-align: center;
+}
+
+.img-cryingjesus {
+  max-height: 50%;
+  max-width: 50%;
+}
+
+nav {
+  background: linear-gradient(to bottom, #111111, #1f1f1f 10%, #000000);
+  box-shadow : 0 5px 100px 10px deeppink;
+}
+
+.accordion {
+  display: block;
+}
